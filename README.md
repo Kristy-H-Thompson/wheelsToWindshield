@@ -18,3 +18,4 @@ This application prompts the user to either create a new vehicle or select an ex
 ## Reasources 
  - Reasource used to figue out how to use super: https://www.typescriptlang.org/docs/handbook/classes.html
  - Reasource used for definite assignment assertion: https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-7.html
+ - Reasource used to figure out override https://dev.to/lioness100/introducing-typescript-override-keyword-4b36
