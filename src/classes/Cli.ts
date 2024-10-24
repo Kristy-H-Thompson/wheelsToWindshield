@@ -51,6 +51,7 @@ static generateVin(): string {
 
 // Method to choose a vehicle from existing vehicles
 chooseVehicle(): void {
+  // Use inquirer to create prompts for the command line
   inquirer
   .prompt([
     {
@@ -82,6 +83,7 @@ chooseVehicle(): void {
 
   // Method to create a vehicle
   createVehicle(): void {
+    // Use inquirer to create prompts for the command line
     inquirer
       .prompt([
         {
@@ -92,6 +94,7 @@ chooseVehicle(): void {
         },
       ])
       .then((answers) => {
+      // Switch statement to call the right function for the vehicle type
         switch (answers.vehicleType) {
           case 'Car':
             this.createCar();
@@ -106,6 +109,17 @@ chooseVehicle(): void {
       });
   }
 
+
+
+
+/* 
+------------------------------------------------------------------------------------------------------------
+
+  METHOD TO CREATE A CAR
+  // TODO: The generateVin method is static and should be called using the class name Cli, make sure to use Cli.generateVin() for creating a truck and motorbike as well! - COMPLETE 
+
+------------------------------------------------------------------------------------------------------------ 
+*/
   // Method to create a car
   createCar(): void {
     inquirer
@@ -119,6 +133,7 @@ chooseVehicle(): void {
       ])
       .then((answers) => {
         const car = new Car(
+          // called the static generateVin method using the class name Cli
           Cli.generateVin(),
           answers.color,
           answers.make,
@@ -134,6 +149,22 @@ chooseVehicle(): void {
       });
   }
 
+
+
+
+
+
+/* 
+------------------------------------------------------------------------------------------------------------
+
+  METHOD TO CREATE A TRUCK
+  // TODO: The generateVin method is static and should be called using the class name Cli, make sure to use Cli.generateVin() for creating a truck and motorbike as well! - COMPLETE
+  // TODO: Use the answers object to pass the required properties to the Truck constructor - COMPLETE
+  // TODO: push the truck to the vehicles array - COMPLETE
+  // TODO: set the selectedVehicleVin to the vin of the truck - COMPLETE
+  // TODO: perform actions on the truck - COMPLETE
+------------------------------------------------------------------------------------------------------------ 
+*/
   // Method to create a truck
   createTruck(): void {
     inquirer
@@ -148,6 +179,7 @@ chooseVehicle(): void {
       ])
       .then((answers) => {
         const truck = new Truck(
+          // called the static generateVin method using the class name Cli
           Cli.generateVin(),
           answers.color,
           answers.make,
@@ -157,12 +189,27 @@ chooseVehicle(): void {
           parseInt(answers.topSpeed),
           parseInt(answers.towingCapacity)
         );
+        // push the truck to the vehicles array
         this.vehicles.push(truck);
+        // set the selectedVehicleVin to the vin of the truck 
         this.selectedVehicleVin = truck.vin;
+        // perform actions on the truck
         this.performActions();
       });
   }
 
+
+
+/* 
+------------------------------------------------------------------------------------------------------------
+
+  METHOD TO CREATE A MOTORBIKE
+  // TODO: Use the answers object to pass the required properties to the Motorbike constructor -COMPLETE
+  // TODO: push the motorbike to the vehicles array - COMPLETE
+  // TODO: set the selectedVehicleVin to the vin of the motorbike - COMPLETE
+  // TODO: perform actions on the motorbike - COMPLETE
+------------------------------------------------------------------------------------------------------------ 
+*/
   // Method to create a motorbike
   createMotorbike(): void {
     inquirer
@@ -189,13 +236,29 @@ chooseVehicle(): void {
           parseInt(answers.topSpeed),
           [new Wheel(answers.frontWheelDiameter, answers.frontWheelBrand), new Wheel(answers.rearWheelDiameter, answers.rearWheelBrand)]
         );
+        // push the motorbike to the vehicles array
         this.vehicles.push(motorbike);
+        // set the selectedVehicleVin to the vin of the motorbike
         this.selectedVehicleVin = motorbike.vin;
+        // perform actions on the motorbike
         this.performActions();
       });
   }
 
+/* 
+------------------------------------------------------------------------------------------------------------
+
+  METHOD TO FIND A VEHICLE TO TOW
+   // TODO: add a parameter to accept a truck object - COMPLETE
+  // TODO: check if the selected vehicle is the truck - COMPLETE
+  // TODO: if it is, log that the truck cannot tow itself then perform actions on the truck to allow the user to select another action - COMPLETE
+  // TODO: if it is not, tow the selected vehicle then perform actions on the truck to allow the user to select another action - COMPLETE
+
+------------------------------------------------------------------------------------------------------------ 
+*/
+
   // Method to find a vehicle to tow
+  // added a parameter to accept a truck object
   findVehicleToTow(truck: Truck): void {
     inquirer
       .prompt([
@@ -211,16 +274,34 @@ chooseVehicle(): void {
       ])
       .then((answers) => {
         const selectedVehicle = answers.vehicleToTow;
+        // check if the selected vehicle is the truck
+        // log that the truck cannot tow itself 
+        // then perform actions on the truck to allow the user to select another action
         if (selectedVehicle.vin === truck.vin) {
           console.log("A truck cannot tow itself.");
           this.performActions(); // Allow the user to select another action
         } else {
+          // tow the selected vehicle 
+          // then perform actions on the truck to allow the user to select another action
           truck.tow(selectedVehicle);
           console.log(`Towed vehicle: ${selectedVehicle.vin}`);
           this.performActions();
         }
       });
   }
+
+
+
+/* 
+------------------------------------------------------------------------------------------------------------
+
+  METHOD TO PERFORM ACTIONS ON A VEHICLE
+  // TODO: add options to tow and wheelie - COMPLETE
+  // TODO: add statements to perform the tow action only if the selected vehicle is a truck. Call the findVehicleToTow method to find a vehicle to tow and pass the selected truck as an argument. After calling the findVehicleToTow method, you will need to return to avoid instantly calling the performActions method again since findVehicleToTow is asynchronous. - COMPLETE
+  // TODO: add statements to perform the wheelie action only if the selected vehicle is a motorbike - COMPLETE
+
+------------------------------------------------------------------------------------------------------------ 
+*/
 
   // Method to perform actions on a vehicle
   performActions(): void {
@@ -301,6 +382,15 @@ chooseVehicle(): void {
       });
   }
 
+
+
+/* 
+------------------------------------------------------------------------------------------------------------
+
+  METHOD TO START THE CLI
+
+------------------------------------------------------------------------------------------------------------ 
+*/
   // Method to start the CLI
   startCli(): void {
     inquirer

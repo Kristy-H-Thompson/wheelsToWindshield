@@ -36,6 +36,11 @@ I learned how use Typescript in a practical way, to help prevent type errors.
 - WHEN I perform an action with a vehicle, THEN I see the result of the action in the command-line
 - WHEN I complete the process of performing an action, THEN I can perform additional actions until I choose to exit
 
+## Reasources 
+ - Reasource used to figue out how to use super: https://www.typescriptlang.org/docs/handbook/classes.html
+ - Reasource used for definite assignment assertion: https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-7.html
+ - Reasource used to figure out override https://dev.to/lioness100/introducing-typescript-override-keyword-4b36
+
  ## Technologies
  - Node.js
 - Typescript

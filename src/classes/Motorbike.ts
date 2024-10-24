@@ -1,10 +1,43 @@
-// Importing Vehicle and Wheel classes
+/* 
+------------------------------------------------------------------------------------------------------------
+
+    IMPORTING CLASSES FROM OTHER FILES
+
+------------------------------------------------------------------------------------------------------------ 
+*/
 import Vehicle from './Vehicle.js';
 import Wheel from './Wheel.js';
 
+
+
+
+/* 
+------------------------------------------------------------------------------------------------------------
+
+    CREATE MOTORBIKE CLASS
+    // TODO: The Motorbike class should extend the Vehicle class - COMPLETE
+    // TODO: Declare properties of the Motorbike class - COMPLETE
+    // TODO: The properties should include vin, color, make, model, year, weight, top speed, and wheels - COMPLETE
+    // TODO: The types should be as follows: vin (string), color (string), make (string), model (string), year (number), weight (number), topSpeed (number), wheels (Wheel[])- COMPLETE
+    // TODO: Create a constructor that accepts the properties of the Motorbike class - COMPLETE
+    // TODO: The constructor should call the constructor of the parent class, Vehicle - COMPLETE
+    // TODO: The constructor should initialize the properties of the Motorbike class - COMPLETE
+    // TODO: The constructor should check if the wheels array has 2 elements and create 2 new default Wheel objects if it does not - COMPLETE
+    // TODO: Implement the wheelie method - COMPLETE
+    // TODO: The method should log the message "Motorbike [make] [model] is doing a wheelie!" - COMPLETE
+    // TODO: Override the printDetails method from the Vehicle class - COMPLETE
+    // TODO: The method should call the printDetails method of the parent class - COMPLETE
+    // TODO: The method should log the details of the Motorbike - COMPLETE
+    // TODO: The details should include the VIN, make, model, year, weight, top speed, color, and wheels - COMPLETE
+
+------------------------------------------------------------------------------------------------------------ 
+*/
+
 // The Motorbike class extends the Vehicle class
 class Motorbike extends Vehicle {
-  // Declare properties of the Motorbike class
+  // Declaring properties of the Motorbike class
+  // The ! syntax in TypeScript is called the "definite assignment assertion." It tells the TypeScript compiler that you are confident the property will be assigned a value before it is accessed, even if it isn't initialized in the constructor.
+  // Reasource used for definite assignment assertion: https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-7.html
   override vin!: string;
   color!: string;
   override make!: string;
@@ -26,6 +59,7 @@ class Motorbike extends Vehicle {
     wheels: Wheel[]
   ) {
     // Call the constructor of the parent class, Vehicle
+    // Reasource used to figue out how to use super https://www.typescriptlang.org/docs/handbook/classes.html
     super(vin, make, model, year, weight, topSpeed);
 
     // Initialize the properties of the Motorbike class
