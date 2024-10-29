@@ -75,6 +75,8 @@ class Motorbike extends Vehicle {
   }
 
   // Override the printDetails method from the Vehicle class
+  //  the override keyword will assert that the function it describes is present in the parent class. This will help cut down on typos, and can give you a heads up if you were not aware that a function was changed/removed in the parent class.
+  // Reasource used to figure out override https://dev.to/lioness100/introducing-typescript-override-keyword-4b36
   override  printDetails(): void {
     // Call the printDetails method of the parent class
     super.printDetails();

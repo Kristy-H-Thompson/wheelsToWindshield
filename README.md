@@ -5,7 +5,7 @@
 This application prompts the user to either create a new vehicle or select an existing vehicle. After going through the creation or selection process, the user is able to perform certain actions with the selected vehicle(Such as start the car, speed up, slow down, ect). The user is returned to the actions menu after each action until they decide to exit the application.
 
 - What was your motivation for creating this project?
-I created this project to practice using Node.js and Typescript in a fun way. While I have used Javascript in a lot of previous projects, I am new to using Typescript. 
+I created this project to practice using Node.js and Typescript in a fun way. While I have used Javascript in a lot of previous projects, this was my first attempt at using typescript in an application.
 
 - What did I learn? 
 I learned how use Typescript in a practical way, to help prevent type errors. 
@@ -43,7 +43,7 @@ I learned how use Typescript in a practical way, to help prevent type errors.
 
  ## Technologies
  - Node.js
-- Typescript
+ - Typescript
 
  ## Features
  - Command line prompts to guide you through creating or editing a virtual vehicle
@@ -57,11 +57,15 @@ You must have node.js, typscript, and inquirer installed before running this pro
 - How to install typescript: [LINK](https://www.typescriptlang.org/download/)
 
 ## Usage
-After you have cloned this repository from github, open the project in your favorite code editor. I used VS code. You must install node.js, typescript, and inquirer(for more details see installation). Once intalled, open the command line terminal and use the command NPM start. You will then be prompted to answer questions about what vehicle you would like to use and what you would like to do with that vehicle. 
+After you have cloned this repository from github, open the project in your favorite code editor. I used VS code. You must install node.js, typescript, and inquirer(for more details see installation). 
+- Once intalled, open the command line terminal and use the command NPM start. 
+- You will then be prompted to create a new vehicle or select an exisiting vehicle. You can choose from a car, a motorbike, or a truck!
+- Answer questions about what vehicle you would like to use and what you would like to do with that vehicle in the terminal.
+- When you do an action it will show in the terminal.
 
 
 ## Walkthrough Video
-Watch this video for a short video tutorial of how to use this application. Link Coming soon.
+Watch this video for a short video tutorial of how to use this application. [LINK](https://drive.google.com/file/d/1t2L3VrBXGz5nxgKhuuznc4mOqo3v8aFH/view?usp=sharing)
 
 
 ## License

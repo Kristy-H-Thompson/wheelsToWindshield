@@ -34,7 +34,7 @@ class Vehicle implements Driveable {
     this.vin = vin;
     this.make = make;
     this.model = model;
-    this.year = year;
+    console.log(parseInt('123'));this.year = year;
     this.weight = weight;
     this.topSpeed = topSpeed;
     this.started = false;
